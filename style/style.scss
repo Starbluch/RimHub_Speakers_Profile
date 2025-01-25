@@ -219,13 +219,13 @@ p,a {
     }
     @media (max-width: 1199px) {
         .speakers__content {
-            margin-top: 10px;
+            margin-top: 40px;
             max-width: 1200px;
         }
     }
     @media (max-width: 450px) {
         .speakers__content {
-            margin-top: 100px;
+            margin-top: 10px;
         }
     }
 }
@@ -240,7 +240,9 @@ p,a {
 
 @media (max-width: 576px) {
     .banner_speakers {    
-        grid-template-rows: 0.05fr 0.2fr;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         margin-bottom: 40px;
     }
 }
