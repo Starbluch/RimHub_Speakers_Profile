@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0px;
   padding: 0px;
@@ -71,6 +72,9 @@ p, a {
 .main__navigation .item__active {
   color: rgba(75, 36, 0, 0.6117647059);
 }
+.main__navigation .img {
+  margin: 0 8px;
+}
 .main__navigation .main__navigation__item {
   font-size: 18px;
   font-family: "Montserrat";
@@ -83,6 +87,11 @@ p, a {
 .main__navigation .main__navigation__item a:hover, .main__navigation .main__navigation__item a:focus, .main__navigation .main__navigation__item a:active {
   text-decoration: none;
   color: inherit;
+}
+@media (max-width: 450px) {
+  .main__navigation .main__navigation__item {
+    font-size: 14px;
+  }
 }
 
 .banner_speakers {
@@ -138,20 +147,123 @@ p, a {
     font-size: 19px;
   }
 }
-.banner_speakers .speakers__content .speakers__content__title .content__rating {
+.banner_speakers .speakers__content .speakers__content__title .rating__relative__1 {
   position: absolute;
-  right: -15px;
-  top: 2px;
+  right: 30px;
+  top: 0px;
 }
-.banner_speakers .speakers__content .speakers__content__title .retimg__item {
-  width: 37px;
-  height: 37px;
-}
-@media (max-width: 576px) {
-  .banner_speakers .speakers__content .speakers__content__title .retimg__item {
-    width: 20px;
-    height: 20px;
+@media (max-width: 450px) {
+  .banner_speakers .speakers__content .speakers__content__title .rating__relative__1 {
+    top: 10px;
+    right: 5px;
   }
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group {
+  position: relative;
+  display: flex;
+  height: 40px;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars input {
+  position: absolute;
+  left: -9999px;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars label {
+  transform: scale(1.5);
+  margin: 0;
+  cursor: pointer;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars label svg {
+  height: 20px;
+  width: 20px;
+  fill: #37C300;
+  transition: fill 0.3s;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars {
+  transform: scale(1.5);
+  margin: 5px 0px 14px 25px;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars .sar {
+  transform: scale(1.45);
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars .sar {
+  margin-right: 13.5px;
+}
+@media (max-width: 611px) {
+  .banner_speakers .speakers__content .speakers__content__title .half-stars {
+    transform: scale(1);
+  }
+  .banner_speakers .speakers__content .speakers__content__title .half-stars .sar {
+    margin-right: 0px;
+    transform: scale(1);
+  }
+  .banner_speakers .speakers__content .speakers__content__title .half-stars label {
+    transform: scale(1);
+  }
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .hsr {
+  top: -3px;
+  position: absolute;
+  width: 11px;
+  overflow: hidden;
+  padding-right: 0;
+  z-index: 100;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .nname_1 {
+  left: -2.5px;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .nname_2 {
+  left: 31px;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .nname_3 {
+  left: 65px;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .nname_4 {
+  left: 98.5px;
+}
+.banner_speakers .speakers__content .speakers__content__title .rating-group .nname_5 {
+  left: 131.7px;
+}
+@media (max-width: 999px) {
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_3 {
+    left: 64.5px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_4 {
+    left: 98px;
+  }
+}
+@media (max-width: 611px) {
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .hsr {
+    top: 0px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_1 {
+    left: 0px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_2 {
+    left: 20.5px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_3 {
+    left: 40.5px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_4 {
+    left: 60.5px;
+  }
+  .banner_speakers .speakers__content .speakers__content__title .rating-group .nname_5 {
+    left: 80.5px;
+  }
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars input:checked ~ label svg {
+  fill: #ffffff;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars input:checked ~ label svg {
+  fill: #ffffff;
+}
+.banner_speakers .speakers__content .speakers__content__title .half-stars .rating-group input:checked ~ label svg path {
+  stroke: rgb(0, 0, 0);
 }
 .banner_speakers .speakers__content .speakers__content__main {
   width: 100%;
@@ -237,6 +349,57 @@ p, a {
   max-width: 1200px;
   height: auto;
 }
+.curses-container .rating-group {
+  position: relative;
+  display: flex; /* Это выстроит элементы в ряд */
+}
+.curses-container .half-stars input {
+  position: absolute;
+  left: -9999px;
+}
+.curses-container .half-stars label {
+  margin: 0;
+  cursor: pointer;
+  display: inline-block; /* Сохраняем наложение, выстраивая в ряд */
+}
+.curses-container .half-stars label svg {
+  height: 20px;
+  width: 20px;
+  fill: #37C300;
+  transition: fill 0.3s;
+}
+.curses-container .half-stars {
+  margin: 5px 0px 14px 25px;
+}
+.curses-container .rating-group {
+  display: inline-block;
+  position: relative;
+}
+.curses-container .rating-group .hsr {
+  position: absolute;
+  width: 11px;
+  overflow: hidden;
+  padding-right: 0;
+  z-index: 100;
+}
+.curses-container .rating-group .hsr:nth-child(2) {
+  left: 0px;
+}
+.curses-container .rating-group .hsr:nth-child(3) {
+  left: 40px;
+}
+.curses-container .rating-group .hsr:nth-child(4) {
+  left: 60px;
+}
+.curses-container .rating-group .hsr:nth-child(5) {
+  left: 80px;
+}
+.curses-container .half-stars input:checked ~ label svg {
+  fill: #ffffff;
+}
+.curses-container .half-stars .rating-group input:checked ~ label svg path {
+  stroke: rgb(0, 0, 0);
+}
 
 @media (max-width: 450px) {
   .curses-container {
@@ -247,18 +410,19 @@ p, a {
   max-width: 1200px;
   justify-content: center;
   width: 100%;
+  margin-bottom: 20px;
   height: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 1fr;
   grid-column: 1/-1;
   grid-row: 1/-1;
-  gap: 25px;
+  gap: 20px;
 }
 .curses__cards .cards-item {
   margin: 0 auto;
   background-color: #ffffff;
-  width: 280px;
+  width: 275px;
   transition: all linear 0.15s;
   box-shadow: 0px 0px 10px #838383;
 }

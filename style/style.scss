@@ -82,7 +82,9 @@ p,a {
     margin: 45px 0 65px 0;
     .item__active {
         color: #4B24009C;
-        
+    }
+    .img {
+        margin: 0 8px;
     }
     .main__navigation__item {
         font-size: 18px;
@@ -95,6 +97,11 @@ p,a {
         a:hover, a:focus, a:active {
             text-decoration: none;  
             color: inherit;         
+        }
+    }
+    @media (max-width: 450px) {
+        .main__navigation__item {
+            font-size: 14px;
         }
     }
 }
@@ -151,19 +158,140 @@ p,a {
                     font-size: 19px;
                 }
             }
-            .content__rating {
+            .rating__relative__1{
                 position: absolute;
-                right: -15px;
-                top: 2px;
+                right: 30px;
+                top: 0px;
             }
-            .retimg__item {
-                width: 37px;
-                height: 37px;
+            @media (max-width: 450px) {
+                .rating__relative__1{
+                    top: 10px;
+                    right: 5px;
+                }
             }
-            @media (max-width: 576px) {
-                .retimg__item {
-                    width: 20px;
-                    height: 20px
+            .rating-group {
+                position: relative;
+                display: flex;
+                height: 40px;
+            }
+            .half-stars input {
+                position: absolute;
+                left: -9999px;
+            }
+            .half-stars label {
+            
+                transform: scale(1.5);
+                margin: 0;
+                cursor: pointer;
+                
+            }
+            .half-stars label svg {
+            
+                height: 20px;
+                width: 20px;
+                fill: #37C300;
+                transition: fill 0.3s;
+            }
+            .half-stars {
+                transform: scale(1.5);
+                margin: 5px 0px 14px 25px;
+                .sar {
+                    transform: scale(1.45); 
+                }
+                
+            }
+            .half-stars .sar {
+                margin-right: 13.5px;
+            }
+            
+            @media (max-width: 611px) {
+                .half-stars  {
+                    transform: scale(1);
+                    .sar {
+                        margin-right: 0px;
+                        transform: scale(1); 
+                    }
+                }
+                .half-stars label {
+                    transform: scale(1);
+                }
+            }
+            .rating-group{
+                display: flex;
+                position: relative;
+                width: 100%;
+                .hsr {
+                    top: -3px;
+                    position: absolute;
+                    width: 11px;
+                    overflow: hidden;
+                    padding-right: 0;
+                    z-index: 100;
+                }
+                .nname_1 {
+                    left: -2.5px;
+                }
+                .nname_2 {
+            
+                    left: 31px;
+                }
+                .nname_3 {
+            
+                    left: 65px;
+                }
+                .nname_4 {
+                
+                    left: 98.5px;
+                }
+                .nname_5 {
+                    left: 131.7px;
+                }
+                @media (max-width: 999px) {
+                    .nname_3 {
+            
+                        left: 64.5px;
+                    }
+                    .nname_4 {
+                    
+                        left: 98px;
+                    }
+                }   
+                @media (max-width: 611px) {
+                    .hsr {
+                        top: 0px;
+                    }
+                    .nname_1 {
+                        left: 0px;
+                    }
+                    .nname_2 {
+                
+                        left: 20.5px;
+                    }
+                    .nname_3 {
+                
+                        left: 40.5px;
+                    }
+                    .nname_4 {
+                    
+                        left: 60.5px;
+                    }
+                    .nname_5 {
+                        left: 80.5px;
+                    }
+                }
+            }
+            .half-stars input:checked ~ label svg {
+                fill: #ffffff;
+                
+            }
+                
+            .half-stars input:checked ~ label svg {
+                fill: #ffffff;
+                
+            }
+            .half-stars .rating-group input:checked ~ label svg {
+                path {
+                    stroke: rgb(0, 0, 0);
                 }
             }
         }
@@ -261,6 +389,63 @@ p,a {
     position: relative;
     max-width: 1200px;
     height: auto;
+    .rating-group {
+        position: relative;
+        display: flex; /* Это выстроит элементы в ряд */
+    }
+    .half-stars input {
+        position: absolute;
+        left: -9999px;
+    }
+    .half-stars label {
+        margin: 0;
+        cursor: pointer;
+        display: inline-block; /* Сохраняем наложение, выстраивая в ряд */
+    }
+    .half-stars label svg {
+        height: 20px;
+        width: 20px;
+        fill: #37C300;
+        transition: fill 0.3s;
+    }
+    .half-stars {
+        margin: 5px 0px 14px 25px;
+    }
+    .rating-group{
+        display: inline-block;
+        position: relative;
+        .hsr {
+            position: absolute;
+            width: 11px;
+            overflow: hidden;
+            padding-right: 0;
+            z-index: 100;
+        }
+        .hsr:nth-child(2) {
+            left: 0px;
+        }
+        .hsr:nth-child(3) {
+            left: 40px;
+        }
+        .hsr:nth-child(4) {
+            left: 60px;
+        }
+        .hsr:nth-child(5) {
+            left: 80px;
+        }
+    }
+    
+    
+    .half-stars input:checked ~ label svg {
+        fill: #ffffff;
+        
+    }
+    
+    .half-stars .rating-group input:checked ~ label svg {
+        path {
+            stroke: rgb(0, 0, 0);
+        }
+    }
 }
 @media (max-width: 450px) {
     .curses-container {
@@ -272,19 +457,20 @@ p,a {
     max-width: 1200px;
     justify-content: center;
     width: 100%;
+    margin-bottom: 20px;
     height: auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     grid-column: 1/-1;
     grid-row: 1/-1;
-    gap: 25px;
+    gap: 20px;
     
 
     .cards-item {
         margin: 0 auto;
         background-color: $color_3;
-        width: 280px;
+        width: 275px;
         transition: all linear 0.15s;
         box-shadow: 0px 0px 10px #838383;
         &:hover {
